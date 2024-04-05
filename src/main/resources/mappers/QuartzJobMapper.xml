@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cmdi.sottle.mapper.QuartzJobMapper">
+
+    <select id="selectJobAll" resultType="QuartzJob">
+      SELECT * FROM sys_job
+    </select>
+
+    <select id="selectJobById" parameterType="int" resultType="QuartzJob">
+      SELECT * FROM sys_job WHERE job_id = #{jobId}
+    </select>
+
+    <delete id="deleteJobById" parameterType="int" >
+      DELETE FROM sys_job WHERE job_id = #{jobId}
+    </delete>
+
+    <update id="changeStatus" >
+      UPDATE sys_job SET status = #{status} WHERE job_id = #{jobId}
+    </update>
+
+</mapper>
